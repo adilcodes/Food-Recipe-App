@@ -24,6 +24,7 @@ body{
 .search-field{
     gap: 1rem;
     padding: 1rem;
+    margin: 3rem 0;
 }
 input[type="text"]{
     min-height: 2.7rem;
@@ -53,6 +54,36 @@ input[type="submit"]:hover{
 }
 ::placeholder{
     color: #fff;
+}
+
+/* Ingredients Designing */
+.ingredients{
+    position: relative;
+    padding: 0 3rem;
+    flex-wrap: wrap;
+    
+}
+.ingredientCard{
+    width: 18rem;
+    min-height: 14rem;
+    background: #fff;
+    float: left;
+    margin: 1rem;
+}
+.ingredientCard-img{
+    width: 100%;
+    min-height: 11rem;
+}
+.ingredientCard-img img{
+    width: 8rem;
+}
+.ingredientCard-text{
+    width: 100%;
+    min-height: 3rem;
+    border-top: 1px solid #b7b9bb;
+    text-align: center;
+    padding: 1rem;
+    font-size: 18px;
 }
 
 
