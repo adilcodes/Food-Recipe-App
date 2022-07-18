@@ -1,3 +1,5 @@
+let ingredientsContainer = document.querySelector(".ingredients");
+
 let Recipe = {
     apiKey : "dacf0e5944b4444fb449d9333e5c2b4c",
     fetchRecipe : function(food){
@@ -15,8 +17,17 @@ let Recipe = {
         // fetching ingredients and their images Start
         let ingredients = data["results"][0]["missedIngredients"];
         ingredients.map((item) => {
-            console.log(item["original"]);
-            console.log(item["image"]);
+            return (
+                ingredientsContainer.innerHTML +=
+                    `<div class="ingredientCard">
+                        <div class="ingredientCard-img flex-box">
+                            <img src="${item["image"]}">
+                        </div>
+                        <div class="ingredientCard-text">
+                            <p>${item["original"]}</p>
+                        </div>
+                    </div>`
+            )
         });
         // fetching ingredients and their images End
     },
