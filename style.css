@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #3A5D70;
+    font-family: 'Open Sans', sans-serif;
+}
+.flex-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Search Field Designing */
+.search-field{
+    gap: 1rem;
+    padding: 1rem;
+}
+input[type="text"]{
+    min-height: 2.7rem;
+    width: 33rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid #fff;
+    outline: none;
+    color: #fff;
+    padding-left: 1rem;
+    font-size: 24px;
+    text-transform: capitalize;
+}
+input[type="submit"]{
+    height: 2.7rem;
+    min-width: 5.5rem;
+    background-color: #DB8B50;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+input[type="submit"]:hover{
+    color: #DB8B50;
+    background: #fff;
+}
+::placeholder{
+    color: #fff;
+}
+
+
+/* Responsiveness */
+@media only screen and (max-width: 767px){
+    .search-field{
+        flex-direction: column;
+    }
+    input[type="text"]{
+        font-size: 20px;
+    }
+    input[type="submit"]{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 560px){
+    input[type="text"]{
+        width: 25rem;
+    }
+}
+
+@media only screen and (max-width: 430px){
+    input[type="text"]{
+        width: 18rem;
+    }
+}
+
+/* For larger devices */
+@media only screen and (min-width: 1500px){
+    input[type="text"]{
+        width: 47rem;
+        font-size: 28px;
+    }
+    input[type="submit"]{
+        font-size: 20px;
+    }
+}
