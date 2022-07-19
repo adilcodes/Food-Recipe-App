@@ -9,7 +9,8 @@ let Recipe = {
         + this.apiKey
         )
         .then((response) => response.json())
-        .then((data) => this.displayData(data));
+        .then((data) => this.displayData(data))
+        .catch(() => alert("Enter The Correct Food Item"));
     },
     
     displayData : function(data){
@@ -21,10 +22,10 @@ let Recipe = {
                 ingredientsContainer.innerHTML +=
                     `<div class="ingredientCard">
                         <div class="ingredientCard-img flex-box">
-                            <img src="${item["image"]}">
+                            <img src="${item['image']}">
                         </div>
                         <div class="ingredientCard-text">
-                            <p>${item["original"]}</p>
+                            <p>${item['original']}</p>
                         </div>
                     </div>`
             )
@@ -32,3 +33,25 @@ let Recipe = {
         // fetching ingredients and their images End
     },
 };
+
+
+let searchBar = document.querySelector("#searchBar");
+let searchBtn = document.querySelector("#searchBtn");
+
+searchBtn.addEventListener("click", () => {
+    if(searchBar.value !== ""){
+        Recipe.fetchRecipe(searchBar.value); 
+    }else{
+        alert("Enter The Correct Food Item");
+    }
+});
+
+searchBar.addEventListener("keyup", (event) => {
+    if(event.key == "Enter"){
+        if(searchBar.value !== ""){
+            Recipe.fetchRecipe(searchBar.value);
+        }else{
+            alert("Enter The Correct Food Item");
+        } 
+    }
+});
