@@ -62,17 +62,6 @@ input[type="submit"]:hover{
     padding: 0 3rem;
     flex-wrap: wrap;
 }
-.food-suggestions{
-    background-color: #fff;
-    width: 30rem;
-    padding: 0.6rem 1rem;
-    margin: 1rem 0;
-    cursor: pointer;
-    text-transform: capitalize;
-}
-.food-suggestions table tr{
-    gap: 0.7rem;
-}
 .ingredientCard{
     width: 18rem;
     min-height: 14rem;

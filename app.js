@@ -1,10 +1,10 @@
 // Targeting DOM Elements
 let ingredientsContainer = document.querySelector(".ingredients");
 
-// Fetching and Storing Data in Objects
-let Foods = {
+// Fetching and Storing Data in Object
+let Recipes = {
     apiKey : "dacf0e5944b4444fb449d9333e5c2b4c",
-    fetchFoods : function(food){
+    fetchRecipes : function(food){
         fetch("https://api.spoonacular.com/recipes/complexSearch?query="
         + food
         + "&number=10&fillIngredients=true&apiKey="
@@ -16,42 +16,33 @@ let Foods = {
     },
     
     displayData : function(data){
-        // Fetching Food titles and their images and displaying them using map function
+        // Fetching Ingredients and their images and displaying them
         ingredientsContainer.innerHTML = "";
-        let titles = data["results"];
-        if(titles.length > 0){
-            titles.map((foodItem) => {
-                return(
-                    ingredientsContainer.innerHTML += 
-                    `<div class="food-suggestions">
-                        <table>
-                            <tr class="flex-box">
-                                <td class="flex-box">
-                                    <img src="${foodItem['image']}" alt="${foodItem['title']}" width="30">
-                                </td>
-                                <td>
-                                    <p>${foodItem['title']}</p>
-                                </td>
-                            </tr>
-                        </table>
+        let ingredients = data["results"][0]["missedIngredients"];
+        ingredients.map((item) => {
+            return (
+                ingredientsContainer.innerHTML +=
+                    `<div class="ingredientCard">
+                        <div class="ingredientCard-img flex-box">
+                            <img src="${item['image']}">
+                        </div>
+                        <div class="ingredientCard-text">
+                            <p>${item['original']}</p>
+                        </div>
                     </div>`
-                )
-            });
-        }else{
-            alert("Enter The Correct Food Item");
-        };
-          
+            )
+        });
     },
 };
 
 
-// Search
+// Searching Functionality
 let searchBar = document.querySelector("#searchBar");
 let searchBtn = document.querySelector("#searchBtn");
 
 searchBtn.addEventListener("click", () => {
     if(searchBar.value !== ""){
-        Foods.fetchFoods(searchBar.value); 
+        Recipes.fetchRecipes(searchBar.value); 
     }else{
         alert("Enter The Correct Food Item");
     }
@@ -60,29 +51,9 @@ searchBtn.addEventListener("click", () => {
 searchBar.addEventListener("keyup", (event) => {
     if(event.key == "Enter"){
         if(searchBar.value !== ""){
-            Foods.fetchFoods(searchBar.value);
+            Recipes.fetchRecipes(searchBar.value);
         }else{
             alert("Enter The Correct Food Item");
         } 
     }
 });
-
-
-
-
-// fetching ingredients and their images Start
-// let ingredients = data["results"][0]["missedIngredients"];
-// ingredients.map((item) => {
-//     return (
-//         ingredientsContainer.innerHTML +=
-//             `<div class="ingredientCard">
-//                 <div class="ingredientCard-img flex-box">
-//                     <img src="${item['image']}">
-//                 </div>
-//                 <div class="ingredientCard-text">
-//                     <p>${item['original']}</p>
-//                 </div>
-//             </div>`
-//     )
-// });
-// fetching ingredients and their images End
