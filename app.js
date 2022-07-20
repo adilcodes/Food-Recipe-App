@@ -19,24 +19,28 @@ let Foods = {
         // Fetching Food titles and their images and displaying them using map function
         ingredientsContainer.innerHTML = "";
         let titles = data["results"];
-        titles.map((foodItem) => {
-            return(
-                ingredientsContainer.innerHTML += 
-                `<div class="food-suggestions">
-                    <table>
-                        <tr class="flex-box">
-                            <td class="flex-box">
-                                <img src="${foodItem['image']}" alt="${foodItem['title']}" width="30">
-                            </td>
-                            <td>
-                                <p>${foodItem['title']}</p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>`
-            )
-        });
-        
+        if(titles.length > 0){
+            titles.map((foodItem) => {
+                return(
+                    ingredientsContainer.innerHTML += 
+                    `<div class="food-suggestions">
+                        <table>
+                            <tr class="flex-box">
+                                <td class="flex-box">
+                                    <img src="${foodItem['image']}" alt="${foodItem['title']}" width="30">
+                                </td>
+                                <td>
+                                    <p>${foodItem['title']}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>`
+                )
+            });
+        }else{
+            alert("Enter The Correct Food Item");
+        };
+          
     },
 };
 
