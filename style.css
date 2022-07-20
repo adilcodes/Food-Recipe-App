@@ -24,7 +24,7 @@ body{
 .search-field{
     gap: 1rem;
     padding: 1rem;
-    margin: 3rem 0;
+    margin: 3rem 0 1rem;
 }
 input[type="text"]{
     min-height: 2.7rem;
@@ -61,6 +61,13 @@ input[type="submit"]:hover{
     position: relative;
     padding: 0 3rem;
     flex-wrap: wrap;
+}
+.recipeTitle{
+    text-transform: capitalize;
+    color: #fff;
+    font-weight: 500;
+    font-size: 25px;
+    margin: 2rem 0;
 }
 .ingredientCard{
     width: 18rem;

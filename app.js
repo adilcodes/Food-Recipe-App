@@ -1,5 +1,6 @@
 // Targeting DOM Elements
 let ingredientsContainer = document.querySelector(".ingredients");
+let recipeTitle = document.querySelector(".recipeTitle");
 
 // Fetching and Storing Data in Object
 let Recipes = {
@@ -7,7 +8,7 @@ let Recipes = {
     fetchRecipes : function(food){
         fetch("https://api.spoonacular.com/recipes/complexSearch?query="
         + food
-        + "&number=10&fillIngredients=true&apiKey="
+        + "&number=1&fillIngredients=true&apiKey="
         + this.apiKey
         )
         .then((response) => response.json())
@@ -16,22 +17,30 @@ let Recipes = {
     },
     
     displayData : function(data){
-        // Fetching Ingredients and their images and displaying them
-        ingredientsContainer.innerHTML = "";
-        let ingredients = data["results"][0]["missedIngredients"];
-        ingredients.map((item) => {
-            return (
-                ingredientsContainer.innerHTML +=
-                    `<div class="ingredientCard">
-                        <div class="ingredientCard-img flex-box">
-                            <img src="${item['image']}">
-                        </div>
-                        <div class="ingredientCard-text">
-                            <p>${item['original']}</p>
-                        </div>
-                    </div>`
-            )
-        });
+        if(data["results"].length > 0){
+            const {title} = data["results"][0];
+            if(title.length > 0){
+                recipeTitle.innerHTML = `Recipe Name: ${title}`;
+            };
+            ingredientsContainer.innerHTML = "";
+            // Fetching Ingredients and their images and displaying them
+            let ingredients = data["results"][0]["missedIngredients"];
+            ingredients.map((item) => {
+                return (
+                    ingredientsContainer.innerHTML +=
+                        `<div class="ingredientCard">
+                            <div class="ingredientCard-img flex-box">
+                                <img src="${item['image']}">
+                            </div>
+                            <div class="ingredientCard-text">
+                                <p>${item['original']}</p>
+                            </div>
+                        </div>`
+                )
+            });
+        }else{
+            alert("Enter The Correct Food Item");
+        };
     },
 };
 
@@ -45,7 +54,7 @@ searchBtn.addEventListener("click", () => {
         Recipes.fetchRecipes(searchBar.value); 
     }else{
         alert("Enter The Correct Food Item");
-    }
+    };
 });
 
 searchBar.addEventListener("keyup", (event) => {
@@ -54,6 +63,6 @@ searchBar.addEventListener("keyup", (event) => {
             Recipes.fetchRecipes(searchBar.value);
         }else{
             alert("Enter The Correct Food Item");
-        } 
-    }
+        };
+    };
 });
