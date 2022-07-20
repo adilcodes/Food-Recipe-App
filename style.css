@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 body{
     position: relative;
@@ -12,7 +13,6 @@ body{
     align-items: center;
     min-height: 100vh;
     background-color: #3A5D70;
-    font-family: 'Open Sans', sans-serif;
 }
 .flex-box{
     display: flex;
@@ -24,7 +24,7 @@ body{
 .search-field{
     gap: 1rem;
     padding: 1rem;
-    margin: 3rem 0 1rem;
+    margin: 3rem 0;
 }
 input[type="text"]{
     min-height: 2.7rem;
@@ -56,41 +56,49 @@ input[type="submit"]:hover{
     color: #fff;
 }
 
-/* Ingredients Designing */
-.ingredients{
+/* Recipes Designing */
+.recipes{
     position: relative;
-    padding: 0 3rem;
+    padding: 0 3rem 3rem;
+    gap: 15px;
     flex-wrap: wrap;
 }
-.recipeTitle{
-    text-transform: capitalize;
-    text-align: center;
-    color: #fff;
-    font-weight: 500;
-    font-size: 25px;
-    margin: 2rem 0;
-}
-.ingredientCard{
-    width: 18rem;
-    min-height: 14rem;
+.recipes .recipeCard{
+    width: 22rem;
+    min-height: 30rem;
     background: #fff;
-    float: left;
-    margin: 1rem;
 }
-.ingredientCard-img{
+.recipeCard .recipeCard-img{
+    position: relative;
     width: 100%;
-    min-height: 11rem;
+    height: 12rem;
+    border: 3px solid #fff;
 }
-.ingredientCard-img img{
-    width: 8rem;
-}
-.ingredientCard-text{
+.recipeCard-img img{
+    position: absolute;
     width: 100%;
-    min-height: 3rem;
-    border-top: 1px solid #b7b9bb;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.recipeCard .recipeCard-data{
+    width: 100%;
+    min-height: 18rem;
+    padding: 0.8rem 0.5rem 1rem;
+}
+.recipeCard-data h3{
     text-align: center;
-    padding: 1rem;
-    font-size: 18px;
+    margin-bottom: 1rem;
+}
+.recipeCard-data .ingredient{
+    margin: 0.6rem 0;
+    gap: 9px;
+}
+.ingredient img{
+    width: 35px;
+}
+.ingredient p{
+    font-size: 19px;
 }
 
 
@@ -117,8 +125,18 @@ input[type="submit"]:hover{
     input[type="text"]{
         width: 18rem;
     }
-    .ingredients{
+    .recipes{
         padding: 0 !important;
+    }
+    .recipes .recipeCard{
+        width: 18rem;
+        min-height: 28rem
+    }
+    .recipeCard .recipeCard-img{
+        height: 11rem;
+    }
+    .recipeCard .recipeCard-data{
+        min-height: 17rem;
     }
 }
 
