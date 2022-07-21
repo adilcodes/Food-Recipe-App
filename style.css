@@ -62,6 +62,7 @@ input[type="submit"]:hover{
     padding: 0 3rem 3rem;
     gap: 15px;
     flex-wrap: wrap;
+    align-items: unset !important;
 }
 .recipes .recipeCard{
     width: 22rem;
@@ -84,21 +85,26 @@ input[type="submit"]:hover{
 .recipeCard .recipeCard-data{
     width: 100%;
     min-height: 18rem;
-    padding: 0.8rem 0.5rem 1rem;
+    padding: 0.8rem 0.5rem 1rem 1rem;
 }
 .recipeCard-data h3{
     text-align: center;
+    text-transform: capitalize;
     margin-bottom: 1rem;
 }
+.recipeCard-data ul{
+    list-style: none;
+}
 .recipeCard-data .ingredient{
-    margin: 0.6rem 0;
+    margin: 01rem 0;
     gap: 9px;
+    justify-content: flex-start !important;
 }
 .ingredient img{
-    width: 35px;
+    width: 25px;
 }
-.ingredient p{
-    font-size: 19px;
+.ingredient span{
+    font-size: 18px;
 }
 
 

@@ -1,6 +1,5 @@
 // Targeting DOM Elements
-let ingredientsContainer = document.querySelector(".ingredients");
-let recipeTitle = document.querySelector(".recipeTitle");
+let recipesContainer = document.querySelector(".recipes");
 
 // Fetching and Storing Data in Object
 let Recipes = {
@@ -8,7 +7,7 @@ let Recipes = {
     fetchRecipes : function(food){
         fetch("https://api.spoonacular.com/recipes/complexSearch?query="
         + food
-        + "&number=1&fillIngredients=true&apiKey="
+        + "&number=10&fillIngredients=true&apiKey="
         + this.apiKey
         )
         .then((response) => response.json())
@@ -17,25 +16,31 @@ let Recipes = {
     },
     
     displayData : function(data){
-        if(data["results"].length > 0){
-            const {title} = data["results"][0];
-            if(title.length > 0){
-                recipeTitle.innerHTML = `Recipe Name: ${title}`;
-            };
-            ingredientsContainer.innerHTML = "";
-            // Fetching Ingredients and their images and displaying them
-            let ingredients = data["results"][0]["missedIngredients"];
-            ingredients.map((item) => {
-                return (
-                    ingredientsContainer.innerHTML +=
-                        `<div class="ingredientCard">
-                            <div class="ingredientCard-img flex-box">
-                                <img src="${item['image']}">
-                            </div>
-                            <div class="ingredientCard-text">
-                                <p>${item['original']}</p>
-                            </div>
-                        </div>`
+        recipesContainer.innerHTML = "";
+        let allRecipes = data["results"];
+        if(allRecipes.length > 0){
+            // Fetching Food Titles and their images and ingredients with recipe
+            allRecipes.map((foodItem) => {
+                return(
+                    recipesContainer.innerHTML+=
+                    `<div class="recipeCard">
+                        <div class="recipeCard-img flex-box">
+                            <img src="${foodItem['image']}" alt="${foodItem['title']}">
+                        </div>
+                        <div class="recipeCard-data">
+                            <h3>${foodItem['title']}</h3>
+                            <ul>
+                                ${foodItem['missedIngredients'].map((ingredient) => {
+                                    return(
+                                        `<li class="ingredient flex-box">
+                                            <img src="${ingredient['image']}" alt="${ingredient['name']}">
+                                            <span>${ingredient['original']}</span>
+                                        </li>`
+                                    )
+                                }).join('')}
+                            </ul>
+                        </div>
+                    </div>`
                 )
             });
         }else{
