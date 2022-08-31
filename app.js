@@ -4,10 +4,14 @@ let recipesContainer = document.querySelector(".recipes");
 // Fetching and Storing Data in Object
 let Recipes = {
     apiKey : "dacf0e5944b4444fb449d9333e5c2b4c",
-    fetchRecipes : function(food){
+    fetchRecipes : function(food, quantity){
+        if(quantity == ""){
+            quantity = "3";
+        }
+        
         fetch("https://api.spoonacular.com/recipes/complexSearch?query="
         + food
-        + "&number=10&fillIngredients=true&apiKey="
+        + "&number="+ quantity +"&fillIngredients=true&apiKey="
         + this.apiKey
         )
         .then((response) => response.json())
@@ -51,23 +55,41 @@ let Recipes = {
 
 
 // Searching Functionality
-let searchBar = document.querySelector("#searchBar");
+let searchBarFood = document.querySelector("#searchBar-food");
+let searchBarQuantity = document.querySelector("#searchBar-quantity");
 let searchBtn = document.querySelector("#searchBtn");
+let options = document.querySelectorAll(".option")
 
 searchBtn.addEventListener("click", () => {
-    if(searchBar.value !== ""){
-        Recipes.fetchRecipes(searchBar.value); 
+    if(searchBarFood.value !== ""){
+        Recipes.fetchRecipes(searchBarFood.value, searchBarQuantity.value); 
     }else{
         alert("Enter The Correct Food Item");
     };
 });
 
-searchBar.addEventListener("keyup", (event) => {
+searchBarFood.addEventListener("keyup", (event) => {
     if(event.key == "Enter"){
-        if(searchBar.value !== ""){
-            Recipes.fetchRecipes(searchBar.value);
+        if(searchBarFood.value !== ""){
+            Recipes.fetchRecipes(searchBarFood.value, searchBarQuantity.value);
         }else{
             alert("Enter The Correct Food Item");
         };
     };
+});
+
+searchBarQuantity.addEventListener("keyup", (event) => {
+    if(event.key == "Enter"){
+        if(searchBarFood.value !== ""){
+            Recipes.fetchRecipes(searchBarFood.value, searchBarQuantity.value);
+        }else{
+            alert("Enter The Correct Food Item");
+        };
+    };
+});
+
+options.forEach(option => {
+    option.addEventListener("click", () => {
+        Recipes.fetchRecipes(option.innerText, 6);
+    });
 });

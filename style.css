@@ -6,50 +6,102 @@
     font-family: 'Montserrat', sans-serif;
 }
 body{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #3A5D70;
+    background-color: rgba(28, 93, 116, 0.988);
 }
+
+/* Genral Classes */
 .flex-box{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Navigation Bar Designing */
+.nav{
+    width: 100%;
+    height: 77px;
+    background: #fff;
+    padding: 13px 63px;
+}
+.nav .logo{
+    justify-content: start;
+    gap: 15px;
+}
+.logo img{
+    width: 50px;
+    cursor: pointer;
+}
+.logo h2{
+    letter-spacing: 1px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* Suggestions Designing */
+.suggestions{
+    width: 100%;
+    padding: 0 73px;
+    gap: 15px;
+    margin-bottom: 4rem;
+}
+.suggestions .option{
+    min-width: 112px;
+    height: 34px;
+    padding: 0 10px;
+    color: #fff;
+    gap: 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.204);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.option img{
+    width: 26px;
+}
+.option:hover{
+    transform: translateY(-5px);
+}
+
 /* Search Field Designing */
 .search-field{
     gap: 1rem;
     padding: 1rem;
-    margin: 3rem 0;
+    margin: 3rem 0 1.5rem;
 }
 input[type="text"]{
     min-height: 2.7rem;
-    width: 33rem;
     background: none;
     border: none;
-    border-bottom: 3px solid #fff;
     outline: none;
+    border-bottom: 3px solid #fff;
     color: #fff;
-    padding-left: 1rem;
-    font-size: 24px;
+    padding-left: 0.5rem;
+    font-size: 22px;
     text-transform: capitalize;
+}
+input[type="text"]:nth-child(1){
+    width: 28rem;
+}
+input[type="text"]:nth-child(2){
+    width: 16rem;
 }
 input[type="submit"]{
     height: 2.7rem;
     min-width: 5.5rem;
-    background-color: #DB8B50;
+    background-color: #FF8450;
     border: none;
+    outline: none;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
 input[type="submit"]:hover{
-    color: #DB8B50;
+    color: #FF8450;
     background: #fff;
 }
 ::placeholder{
