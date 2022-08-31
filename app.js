@@ -8,7 +8,7 @@ let Recipes = {
         if(quantity == ""){
             quantity = "3";
         }
-        
+
         fetch("https://api.spoonacular.com/recipes/complexSearch?query="
         + food
         + "&number="+ quantity +"&fillIngredients=true&apiKey="
@@ -93,3 +93,6 @@ options.forEach(option => {
         Recipes.fetchRecipes(option.innerText, 6);
     });
 });
+
+// On Load API call
+Recipes.fetchRecipes("Mix", 3);
