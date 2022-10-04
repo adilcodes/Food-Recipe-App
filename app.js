@@ -89,8 +89,9 @@ searchBarQuantity.addEventListener("keyup", (event) => {
 });
 
 options.forEach(option => {
-    option.addEventListener("click", () => {
-        Recipes.fetchRecipes(option.innerText, 6);
+    option.addEventListener("click", (e) => {
+        // console.log(option.children[0].alt);
+        Recipes.fetchRecipes(option.children[0].alt, 6);
     });
 });
 

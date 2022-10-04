@@ -37,35 +37,6 @@ body{
     cursor: pointer;
 }
 
-/* Suggestions Designing */
-.suggestions{
-    width: 100%;
-    padding: 0 73px;
-    gap: 15px;
-    margin-bottom: 4rem;
-}
-.suggestions .option{
-    min-width: 112px;
-    height: 34px;
-    padding: 0 10px;
-    color: #fff;
-    gap: 7px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.204);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-}
-.option img{
-    width: 26px;
-}
-.option:hover{
-    transform: translateY(-5px);
-}
-
 /* Search Field Designing */
 .search-field{
     gap: 1rem;
@@ -106,6 +77,35 @@ input[type="submit"]:hover{
 }
 ::placeholder{
     color: #fff;
+}
+
+/* Suggestions Designing */
+.suggestions{
+    width: 100%;
+    padding: 0 73px;
+    gap: 15px;
+    margin-bottom: 4rem;
+}
+.suggestions .option{
+    min-width: 112px;
+    height: 34px;
+    padding: 0 10px;
+    color: #fff;
+    gap: 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.204);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.option img{
+    width: 26px;
+}
+.option:hover{
+    transform: translateY(-5px);
 }
 
 /* Recipes Designing */
