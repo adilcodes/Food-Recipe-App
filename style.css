@@ -161,30 +161,62 @@ input[type="submit"]:hover{
 
 
 /* Responsiveness */
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 930px){
+    input[type="text"]:nth-child(1){
+        width: 23rem;
+    }
+    input[type="text"]:nth-child(2){
+        width: 14rem;
+    }
+}
+
+@media only screen and (max-width: 814px){
+    input[type="text"]:nth-child(1){
+        width: 21rem;
+    }
+    input[type="text"]:nth-child(2){
+        width: 12rem;
+    }
+    .recipes .recipeCard {
+        width: 18rem;
+    }
+}
+
+@media only screen and (max-width: 768px){
     .search-field{
         flex-direction: column;
+        padding: 1rem 4.5rem;
     }
     input[type="text"]{
-        font-size: 20px;
+        width: 100% !important;
     }
     input[type="submit"]{
         width: 100%;
     }
 }
 
-@media only screen and (max-width: 560px){
-    input[type="text"]{
-        width: 25rem;
+@media only screen and (max-width: 686px){
+    .recipes .recipeCard {
+        width: 22rem;
+    }
+}
+
+@media only screen and (max-width: 580px){
+    .search-field{
+        padding: 1rem 2.3rem;
+    }
+    .suggestions .option{
+        min-width: 73px;
+        height: 40px;
+    }
+    .suggestions .option p{
+        display: none;
     }
 }
 
 @media only screen and (max-width: 430px){
-    input[type="text"]{
-        width: 18rem;
-    }
     .recipes{
-        padding: 0 !important;
+        padding: 0 0 2rem !important;
     }
     .recipes .recipeCard{
         width: 18rem;
@@ -195,6 +227,25 @@ input[type="submit"]:hover{
     }
     .recipeCard .recipeCard-data{
         min-height: 17rem;
+    }
+}
+
+@media only screen and (max-width: 416px){
+    .suggestions .option{
+        min-width: 50px;
+        height: 40px
+    }
+    input[type="text"]{
+        font-size: 21px;
+    }
+}
+
+@media only screen and (max-width: 324px){
+    .nav{
+        padding: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
