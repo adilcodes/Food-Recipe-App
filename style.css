@@ -24,16 +24,14 @@ body{
     padding: 13px 63px;
 }
 .nav .logo{
-    justify-content: start;
     gap: 15px;
 }
 .logo img{
-    width: 50px;
+    width: 46px;
     cursor: pointer;
 }
 .logo h2{
     letter-spacing: 1px;
-    margin-top: 5px;
     cursor: pointer;
 }
 
